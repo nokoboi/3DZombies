@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,6 +51,9 @@ public class PlayerController : MonoBehaviour
 
         // Cameras
         ChangeCamera();
+
+        // Jump
+        Jump();
     }
 
     private void FixedUpdate()
@@ -65,6 +69,20 @@ public class PlayerController : MonoBehaviour
             transform.Translate(0, 0, y * Time.fixedDeltaTime * speedMovement);
         }
         
+    }
+
+    private void Jump()
+    {
+        if(canJump)
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                animator.SetBool("Jumped", true);
+                jumped = true;
+
+                rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);                
+            }
+        }
     }
 
     private void ChangeCamera()
