@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
     public bool canJump;
     public bool jumped;
 
+    // Punching
+    public bool punching;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +57,19 @@ public class PlayerController : MonoBehaviour
 
         // Jump
         Jump();
+
+        // Punch
+        Punch();
+    }
+
+    private void Punch()
+    {
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            animator.SetTrigger("Punch");
+
+            punching = true;
+        }
     }
 
     private void FixedUpdate()
