@@ -21,9 +21,9 @@ public class PlayerController : MonoBehaviour
     // Jump
     [SerializeField] Rigidbody rb;
     [SerializeField] float jumpForce;
-    [SerializeField] bool touchingGround;
-    [SerializeField] bool canJump;
-    [SerializeField] bool jumped;
+    public bool touchingGround;
+    public bool canJump;
+    public bool jumped;
 
     // Start is called before the first frame update
     void Start()
@@ -82,7 +82,25 @@ public class PlayerController : MonoBehaviour
 
                 rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);                
             }
+
+            animator.SetBool("TouchingGround", true);
+            touchingGround = true;
         }
+        else
+        {
+
+            Debug.Log("nosalto");
+            Falling();
+        }
+    }
+
+    private void Falling()
+    {
+        animator.SetBool("TouchingGround", false);
+        animator.SetBool("Jumped", false) ;
+
+        touchingGround = false;
+        jumped = false;
     }
 
     private void ChangeCamera()
