@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MissionLogic : MonoBehaviour
 {
@@ -26,7 +28,13 @@ public class MissionLogic : MonoBehaviour
             if(numObjetivos <= 0)
             {
                 textoMision.text = "Idiots erradicated!";
+                botonMision.SetActive(true);
             }
         }
+    }
+
+    public void BotonOkey()
+    {
+        SceneManager.LoadScene("Map_v1");
     }
 }

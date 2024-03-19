@@ -16,6 +16,7 @@ public class NPCDialog : MonoBehaviour
     public Button botonSi, botonNo, botonAceptar;
     public GameObject colliders;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +71,5 @@ public class NPCDialog : MonoBehaviour
         pared.gameObject.SetActive(false);
         Destroy(colliders);
         panel2.gameObject.SetActive(true);
-
     }
 }
