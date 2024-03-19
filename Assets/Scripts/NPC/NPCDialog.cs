@@ -8,6 +8,7 @@ public class NPCDialog : MonoBehaviour
 {
     private GameObject player;
     public Canvas panel1;
+    public Canvas panel2;
     public TMP_Text texto1;
     public bool si = false, no = false, misionAceptada = false;
     public GameObject pared;
@@ -68,6 +69,7 @@ public class NPCDialog : MonoBehaviour
     {
         pared.gameObject.SetActive(false);
         Destroy(colliders);
+        panel2.gameObject.SetActive(true);
 
     }
 }
